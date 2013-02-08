@@ -53,4 +53,4 @@ It's good idea to assign Selenium tests to group (in this case `functional`).
 That allows you to run only functional tests with `phpunit <other_options> --group functional`,
 or exclude them from testing.
 
-For more information on PHPUnit and Selenium see (http://www.phpunit.de/manual/current/en/selenium.html).
+For more information on PHPUnit and Selenium see [http://www.phpunit.de/manual/current/en/selenium.html].
