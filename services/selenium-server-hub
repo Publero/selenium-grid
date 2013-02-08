@@ -1,0 +1,50 @@
+#!/bin/bash
+
+PID_FILE="/run/selenium-hub.pid"
+LOG_FILE="/var/log/selenium-server-hub.log"
+JAR_FILE="/usr/share/selenium/selenium-server-standalone.jar"
+CONFIG_FILE="/etc/selenium/hub.json"
+
+start() {
+  if [ -f "$PID_FILE" ]; then
+    echo "already started"
+  else
+    echo "Starting Selenium server in Hub mode"
+    java -jar "$JAR_FILE" -role hub -hubConfig "$CONFIG_FILE" < /dev/null >> "$LOG_FILE" 2>&1 &
+    echo $! > "$PID_FILE"
+  fi
+}
+
+stop() {
+  if [ -f "$PID_FILE" ]; then
+    echo "Stopping Selenium server in Hub mode"
+    PID="$(cat "$PID_FILE")"
+    kill $PID > /dev/null 2>&1
+    rm "$PID_FILE"
+  else
+    echo "not running"
+  fi
+}
+
+restart() {
+  stop
+  start
+}
+
+case $1 in
+start)
+  start
+;;
+stop)
+  stop
+;;
+restart)
+  restart
+;;
+*)
+
+echo "Usage: $0 {start|stop|restart}"
+exit 1
+esac
+
+exit 0  
