@@ -10,7 +10,8 @@ fi
 SELENIUM_DIR="/usr/share/selenium"
 STANDALONE_VERSION="2.29.0"
 STANDALONE_URL="http://selenium.googlecode.com/files/selenium-server-standalone-${STANDALONE_VERSION}.jar"
-if [ $(uname -i) == "x86_64" ]; then
+ARCH=$(uname -i)
+if [ "$ARCH" == "x86_64" ]; then
   ARCH="64"
 else
   ARCH="32"
