@@ -47,4 +47,13 @@ Some WebDrivers are shipped within browsers (FF & Opera) and we set up for you t
 License
 =======
 
-This project is under MIT license. For more information see file `LICENSE` shipped with this project.
+This project is under MIT license. For more information see the file `LICENSE` shipped with this project.
+
+What next
+=========
+
+Soon you can expect more thorough documentation, as well as some basic tutorials
+on how to use the Grid for actual testing and how to customizee the setup.
+
+Please feel free to report any bugs you encounter, your suggestions and feature requests
+at out (issues)[https://github.com/Publero/selenium-grid/issues] page.
