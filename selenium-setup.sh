@@ -1,5 +1,7 @@
 #!/bin/sh
 
+basedir=$(dirname $0)
+
 if [ `id -u` -ne '0' ]; then
   echo "This script must be run as root" >&2
   exit 1
@@ -38,7 +40,8 @@ command -v javac >/dev/null 2>&1 || apt-get -y install openjdk-7-jre icedtea-7-
 apt-get -y install xvfb\
   x11-xkb-utils\
   xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic\
-  xserver-xorg-core
+  xserver-xorg-core\
+  unzip
 
 # Install Selenium Standalone Server
 if [ ! -d "$SELENIUM_DIR" ]; then
@@ -50,10 +53,10 @@ wget -O "$SELENIUM_DIR/selenium-server-standalone.jar" "$STANDALONE_URL"
 if [ ! -d /etc/selenium ]; then
   mkdir /etc/selenium
 fi
-cp ./config/* /etc/selenium/
+cp $basedir/config/* /etc/selenium/
 
 # Install services
-cp ./services/* /etc/init.d/
+cp $basedir/services/* /etc/init.d/
 
 # Install Chrome, Firefox & Opera
 apt-get -y install google-chrome-stable firefox opera
