@@ -4,15 +4,13 @@ How to write Selenium tests with PHPUnit
 If your project is written in PHP, you probably use PHPUnit for testing.
 It would be nice to be able to write functional tests in PHP too.
 
-For one because you use same langue for application and for testing,
+For one because you use same language for application and for testing,
 you can combine code coverage from unit tests and functional tests,
 and you can use same resources to get test data (e.g. same model to access DB)
 as your application.
 
 There are many bindings you can use, but we chose PHPUnit_Selenium extension.
-
 Nice thig here is, that if Hub is down for some reason, the tests are skipped.
-
 A simple example of such test:
 
 ``` php
