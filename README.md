@@ -1,7 +1,7 @@
 Getting started with Selenium Grid
 ==================================
 
-(Selenium)[http://seleniumhq.org/] automates browsers.
+[Selenium](http://seleniumhq.org/) automates browsers.
 Primarily it is for automating web applications for testing purposes, but is certainly not limited to just that.
 
 Selenium Grid allows you to run your tests against various predefined environments and browsers in parallel.
@@ -56,4 +56,4 @@ Soon you can expect more thorough documentation, as well as some basic tutorials
 on how to use the Grid for actual testing and how to customizee the setup.
 
 Please feel free to report any bugs you encounter, your suggestions and feature requests
-at out (issues)[https://github.com/Publero/selenium-grid/issues] page.
+at out [issues](https://github.com/Publero/selenium-grid/issues) page.
