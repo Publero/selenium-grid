@@ -21,9 +21,7 @@ curl https://raw.github.com/Publero/selenium-grid/master/install.sh | sudo sh
 How to use Selenium Grid
 ========================
 
-Selenium Grid consists of 2 parts: Selenium Server and WebDriver(s).
-
-**Selenium Server** provides API to controll the browsers and runs two modes: hub mode and node mode.
+Selenium Grid consists of 2 parts: Selenium Server and WebDriver(s). Selenium Server provides API to controll the browsers and runs two modes: hub mode and node mode.
 To make simple we provided services for both modes.
 
 Selenium server in hub mode (I will reffer to it as the Hub) is what your test framework will connect to
@@ -43,3 +41,10 @@ sudo service selenium-server-node start
 ```
 
 **Note: You don't need a desktop environment to use Selenium Grid. Node uses virtual screen instead.**
+
+Some WebDrivers are shipped within browsers (FF & Opera) and we set up for you the ones that aren't.
+
+License
+=======
+
+This project is under MIT license. For more information see file `LICENSE` shipped with this project.
