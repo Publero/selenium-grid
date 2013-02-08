@@ -1,33 +1,35 @@
 #!/bin/sh
 
-vagrant_switch="--vagrant"
-
-if [ $# -gt 1 ]; then
-  echo "Usage: $0 [ $vagrant_switch ]" >&2
+if [ `id -u` -ne '0' ]; then
+  echo "This script must be run as root" >&2
   exit 1
 fi
 
-if [ $# -eq 1 ] && [ "$1" != "$vagrant_switch" ]; then
-  echo "Usage: $0 [ $vagrant_switch ]" >&2
-  exit 1
-fi
+name=selenium-grid
 
 branch=master
-name=selenium-grid
+if [ $# -gt 0 ]; then
+  branch=$1
+fi
+
 repo=Publero/$name
+if [ $# -gt 1 ]; then
+  repo=$2
+fi
+
+if [ $# -gt 2 ]; then
+  echo "Usage: $0 [[<branch>] <repository>]" >&2
+  exit 1
+fi
 
 # Download installation content & prepare
 wget -O $name.tar.gz https://github.com/$repo/archive/$branch.tar.gz
 tar -xzf $name.tar.gz
 rm $name.tar.gz
-mv ${name}-* $name
+mv ${name}-$branch $name
 
 # Install
-if [ $# -eq 0 ] || [ "$1" != "$vagrant_switch" ]; then
-  sudo $name/selenium-setup.sh
-else
-  $name/vagrant-selenium-setup.sh
-fi
+$name/selenium-setup.sh
 
 # Clean up
 rm -rf $name
