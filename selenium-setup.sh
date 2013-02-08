@@ -9,14 +9,14 @@ fi
 
 SELENIUM_DIR="/usr/share/selenium"
 STANDALONE_VERSION="2.29.0"
-STANDALONE_URL="http://selenium.googlecode.com/files/selenium-server-standalone-$STANDALONE_VERSION.jar"
+STANDALONE_URL="http://selenium.googlecode.com/files/selenium-server-standalone-${STANDALONE_VERSION}.jar"
 if [ $(uname -i) == "x86_64" ]; then
   ARCH="64"
 else
   ARCH="32"
 fi
 CHROME_DRIVER_VERSION="6.0.1383.0"
-CHROME_DRIVER_URL="http://chromedriver.googlecode.com/files/chromedriver_linux$ARCH_$CHROME_DRIVER_VERSION.zip"
+CHROME_DRIVER_URL="http://chromedriver.googlecode.com/files/chromedriver_linux${ARCH}_${CHROME_DRIVER_VERSION}.zip"
 SYSTEM_PROPERTIES_FILE="/etc/profile.d/selenium.sh"
 
 echo "Setting up Selenium"
