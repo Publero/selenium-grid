@@ -36,7 +36,10 @@ command -v google-chrome >/dev/null 2>&1 || {
 }
 
 apt-get update
-command -v javac >/dev/null 2>&1 || apt-get -y install openjdk-7-jre icedtea-7-plugin
+command -v java >/dev/null 2>&1 || {
+  echo "no JRE - installing now" >&2
+  apt-get -y install openjdk-7-jre icedtea-7-plugin
+}
 apt-get -y install xvfb\
   x11-xkb-utils\
   xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic\
