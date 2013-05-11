@@ -41,7 +41,8 @@ apt-get -y install xvfb\
   x11-xkb-utils\
   xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic\
   xserver-xorg-core\
-  unzip
+  unzip\
+  x11vnc
 
 # Install Selenium Standalone Server
 if [ ! -d "$SELENIUM_DIR" ]; then
