@@ -8,7 +8,7 @@ if [ `id -u` -ne '0' ]; then
 fi
 
 SELENIUM_DIR="/usr/share/selenium"
-STANDALONE_VERSION="2.32.0"
+STANDALONE_VERSION="2.33.0"
 STANDALONE_URL="http://selenium.googlecode.com/files/selenium-server-standalone-${STANDALONE_VERSION}.jar"
 ARCH=$(uname -i)
 if [ "$ARCH" == "x86_64" ]; then ARCH="64"; else ARCH="32"; fi
