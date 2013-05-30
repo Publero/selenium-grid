@@ -3,6 +3,7 @@
 PID_FILE="/run/selenium-node.pid"
 LOG_FILE="/var/log/selenium-server-node.log"
 JAR_FILE="/usr/share/selenium/selenium-server-standalone.jar"
+CHROME_DRIVER_FILE="/usr/share/selenium/driver/chromedriver"
 CONFIG_FILE="/etc/selenium/node.json"
 
 VNC_LOG_FILE="/var/log/x11vnc.log"
@@ -17,7 +18,7 @@ start() {
     x11vnc -display :22 < /dev/null >> "$VNC_LOG_FILE" 2>&1 &
     echo $! > "$VNC_PID_FILE"
     export DISPLAY=:22
-    java -jar "$JAR_FILE" -role node -nodeConfig "$CONFIG_FILE" < /dev/null >> "$LOG_FILE" 2>&1 &
+    java -jar "$JAR_FILE" -Dwebdriver.chrome.driver="$CHROME_DRIVER_FILE" -role node -nodeConfig "$CONFIG_FILE" < /dev/null >> "$LOG_FILE" 2>&1 &
     echo $! > "$PID_FILE"
   fi
 }
